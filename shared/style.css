@@ -61,7 +61,7 @@ main {
     margin-bottom: 10px;
 }
 
-.items-container{
+.items-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -168,4 +168,36 @@ label {
 
 .detail-item p {
     font-size: 20px;
+}
+
+.team-details-left {
+    width: 50%;
+    text-align: center;
+}
+
+.team-details-right {
+    width: 50%;
+    text-align: center;
+}
+
+.team-details-left h2,
+.team-details-right h2 {
+    margin-bottom: 10px;
+}
+
+.driver-images img {
+    width: 45%;
+    margin: 5px;
+}
+
+.principal-image img {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.info {
+    display: flex;
+    justify-content: center;
 }
