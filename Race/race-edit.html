@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F1 Info</title>
+    <link rel="stylesheet" href="../shared/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script defer src="../shared/script.js"></script>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>LOGO</h1>
+            </div>
+            <ul class="navbar-items">
+                <li><a href="../Driver/driver.html">Drivers</a></li>
+                <li><a href="race.html">Races</a></li>
+                <li><a href="../Team/team.html">Teams</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2 class="form-title">Edit Race</h2>
+        <form class="add-form">
+
+            <label for="image-link">Image Link:</label>
+            <input type="text" id="image-link" name="image-link">
+
+            <label for="race-name">Race name:</label>
+            <input type="text" id="race-name" name="race-name">
+
+            <label for="circuit-name">Circuit name:</label>
+            <input type="text" id="circuit-name" name="circuit-name">
+
+            <label for="country">Country:</label>
+            <input type="text" id="country" name="country">
+
+            <label for="number-of-laps">Number of laps:</label>
+            <input type="text" id="number-of-laps" name="number-of-laps">
+
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date">
+
+            <label for="winner">Winner:</label>
+            <select id="winner" name="winner">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+
+            <button type="submit" class="edit-button-submit">Submit</button>
+        </form>
+    </main>
+
+
+    <footer>
+        <h2>Footer</h2>
+    </footer>
+</body>
+
+</html>

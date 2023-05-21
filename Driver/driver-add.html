@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F1 Info</title>
+    <link rel="stylesheet" href="../shared/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script defer src="../shared/script.js"></script>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>LOGO</h1>
+            </div>
+            <ul class="navbar-items">
+                <li><a href="driver.html">Drivers</a></li>
+                <li><a href="../Race/race.html">Racers</a></li>
+                <li><a href="../Team/team.html">Teams</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2 class="form-title">Add Driver</h2>
+        <form class="add-form">
+
+            <label for="image-link">Image Link:</label>
+            <input type="text" id="image-link" name="image-link">
+
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name">
+
+            <label for="nationality">Nationality:</label>
+            <input type="text" id="nationality" name="nationality">
+
+            <label for="team">Team:</label>
+            <select id="team" name="team">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+
+            <label for="racing-number">Racing Number:</label>
+            <input type="text" id="racing-number" name="racing-number">
+
+            <label for="races-won">Races Won:</label>
+            <select id="races-won" name="races-won">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+
+            <button type="submit" class="add-button-submit">Submit</button>
+        </form>
+    </main>
+
+
+    <footer>
+        <h2>Footer</h2>
+    </footer>
+</body>
+
+</html>
