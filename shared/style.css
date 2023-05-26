@@ -95,15 +95,7 @@ main {
     margin-top: 4px;
 }
 
-/* Footer */
-footer {
-    text-align: center;
-    background-color: #c6c6c6;
-    padding: 10px;
-    margin-top: auto;
-}
-
-/* Add Driver form styles */
+/* Add and Edit form styles */
 .add-form {
     margin-top: 20px;
     text-align: center;
@@ -202,4 +194,12 @@ label {
 .info {
     display: flex;
     justify-content: center;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    background-color: #c6c6c6;
+    padding: 10px;
+    margin-top: auto;
 }
