@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100;300;400;700&family=Roboto:wght@100;300;400;700&family=Titillium+Web:wght@300;400;600;700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Titillium Web', sans-serif;
 }
 
 body {
@@ -17,28 +20,32 @@ a::after {
 }
 
 button {
-    padding: 10px 20px;
-    background-color: #238be0;
+    padding: 5px 20px;
+    background-color: rgb(225,6,0);
     color: white;
     border: none;
+    font-size: 17px;
     border-radius: 4px;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #1776c3;
+    background-color: rgb(255, 8, 0);
 }
 
 /* Navbar */
 header {
-    background-color: #c6c6c6;
-    padding: 10px;
+    background-color: rgb(225,6,0);
+    padding: 5px;
+    color: white;
 }
 
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-left: 25px;
+    margin-right: 60px;
 }
 
 .navbar-items {
@@ -48,6 +55,20 @@ nav {
 
 .navbar-items li {
     margin-left: 10px;
+    font-size: 20px;
+}
+
+.navbar-items li a {
+    color: white;
+    cursor: pointer;
+}
+
+.navbar-items li a:hover {
+    text-decoration: underline;
+}
+
+.logo h1 {
+    font-size: 28px;
 }
 
 /* Main section */
@@ -75,7 +96,7 @@ main {
 
 .item {
     margin: 10px;
-    border: 1px solid #cccc;
+    border: 2px solid #b3b2b2cc;
     width: 200px;
     text-align: center;
 }
@@ -85,15 +106,40 @@ main {
     border-top: 1px solid black;
 }
 
+.item a:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
 .item img {
     width: 100%;
     height: auto;
 }
 
 .item-icons {
-    font-size: 17px;
-    margin-top: 4px;
+    font-size: 20px;
+    margin-top: 2px;
 }
+
+.edit-icon a i {
+    margin-right: 3px;
+    color: rgb(20, 189, 40);
+}
+
+.edit-icon a i:hover{
+    color: rgb(22, 226, 46);
+}
+
+.delete-icon{
+    margin-left: 3px;
+    cursor: pointer;
+    color: rgb(225,6,0);
+}
+
+.delete-icon:hover{
+    color: rgb(255, 8, 0);
+}
+
 
 /* Add and Edit form styles */
 .add-form {
@@ -134,24 +180,26 @@ main {
     margin: 10px auto;
 }
 
-.info {
-    display: flex;
-}
-
 .image {
     width: 50%;
     margin-right: 100px;
 }
 
 .image img {
-    width: 100%;
+    width: 90%;
     height: 90%;
 }
 
 .details {
     width: 50%;
     height: 100%;
-    background-color: #cccccc;
+    background-color: #f2f2f2;
+    border-right: 5px solid rgb(21,21,30);
+    border-bottom: 5px solid rgb(21,21,30);
+    border-top: 5px solid rgb(255, 8, 0);
+    border-left: 5px solid rgb(255, 8, 0);
+    border-top-right-radius: 5%;
+    border-bottom-left-radius: 5%;
     padding: 20px;
     text-align: center;
 }
@@ -194,12 +242,27 @@ label {
 .info {
     display: flex;
     justify-content: center;
+    margin-top: 3%;
 }
 
 /* Footer */
 footer {
     text-align: center;
-    background-color: #c6c6c6;
-    padding: 10px;
+    background-color: rgb(21,21,30);
+    padding: 5px;
+    color: white;
     margin-top: auto;
+}
+
+@media only screen and (max-width: 1024px){
+    main .info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    main .info .image {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
 }
