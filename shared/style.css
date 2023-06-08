@@ -20,12 +20,12 @@ a::after {
 }
 
 button {
-    padding: 5px 20px;
-    background-color: rgb(225,6,0);
+    padding: 0.3rem 1rem;
+    background-color: rgb(225, 6, 0);
     color: white;
     border: none;
-    font-size: 17px;
-    border-radius: 4px;
+    font-size: 1.2rem;
+    border-radius: 0.3rem;
     cursor: pointer;
 }
 
@@ -35,8 +35,8 @@ button:hover {
 
 /* Navbar */
 header {
-    background-color: rgb(225,6,0);
-    padding: 5px;
+    background-color: rgb(225, 6, 0);
+    padding: 0.3rem;
     color: white;
 }
 
@@ -44,8 +44,8 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-left: 25px;
-    margin-right: 60px;
+    margin-left: 0.6rem;
+    margin-right: 1.9rem;
 }
 
 .navbar-items {
@@ -54,8 +54,8 @@ nav {
 }
 
 .navbar-items li {
-    margin-left: 10px;
-    font-size: 20px;
+    margin-left: 0.5rem;
+    font-size: 1.2rem;
 }
 
 .navbar-items li a {
@@ -68,24 +68,24 @@ nav {
 }
 
 .logo h1 {
-    font-size: 28px;
+    font-size: 1.75rem;
 }
 
 /* Main section */
 main {
     width: 80%;
     margin: 0 auto;
-    padding: 20px;
+    padding: 1rem;
 }
 
 .main-title {
     text-align: center;
-    margin-bottom: 35px;
+    margin-bottom: 1.75rem;
 }
 
 .button-container {
     text-align: right;
-    margin-bottom: 10px;
+    margin-bottom: 0.5rem;
 }
 
 .items-container {
@@ -95,15 +95,15 @@ main {
 }
 
 .item {
-    margin: 10px;
-    border: 2px solid #b3b2b2cc;
-    width: 200px;
+    margin: 0.5rem;
+    border: 0.125rem solid #b3b2b2cc;
+    width: 12.5rem;
     text-align: center;
 }
 
 .item h3 {
-    border-bottom: 1px solid black;
-    border-top: 1px solid black;
+    border-bottom: 0.1rem solid black;
+    border-top: 0.1rem solid black;
 }
 
 .item a:hover {
@@ -117,12 +117,12 @@ main {
 }
 
 .item-icons {
-    font-size: 20px;
-    margin-top: 2px;
+    font-size: 1.2rem;
+    margin-top: 0.1rem;
 }
 
 .edit-icon a i {
-    margin-right: 3px;
+    margin-right: 0.2rem;
     color: rgb(20, 189, 40);
 }
 
@@ -131,9 +131,9 @@ main {
 }
 
 .delete-icon{
-    margin-left: 3px;
+    margin-left: 0.2rem;
     cursor: pointer;
-    color: rgb(225,6,0);
+    color: rgb(225, 6, 0);
 }
 
 .delete-icon:hover{
@@ -143,30 +143,30 @@ main {
 
 /* Add and Edit form styles */
 .add-form {
-    margin-top: 20px;
+    margin-top: 1rem;
     text-align: center;
     background-color: #f2f2f2;
-    padding: 20px;
+    padding: 1rem;
 }
 
 .form-title {
-    margin-bottom: 10px;
+    margin-bottom: 0.5rem;
     text-align: center;
 }
 
 .add-form label {
     display: block;
     text-align: left;
-    margin-bottom: 5px;
+    margin-bottom: 0.3rem;
 }
 
 .add-form input,
 .add-form select {
     width: 100%;
-    padding: 5px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    padding: 0.3rem;
+    margin-bottom: 0.6rem;
+    border: 0.1rem solid #ccc;
+    border-radius: 0.25rem;
     box-sizing: border-box;
 }
 
@@ -177,12 +177,12 @@ main {
 
 .go-back-button {
     display: block;
-    margin: 10px auto;
+    margin: 0.6rem auto;
 }
 
 .image {
     width: 50%;
-    margin-right: 100px;
+    margin-right: 6rem;
 }
 
 .image img {
@@ -194,23 +194,23 @@ main {
     width: 50%;
     height: 100%;
     background-color: #f2f2f2;
-    border-right: 5px solid rgb(21,21,30);
-    border-bottom: 5px solid rgb(21,21,30);
-    border-top: 5px solid rgb(255, 8, 0);
-    border-left: 5px solid rgb(255, 8, 0);
-    border-top-right-radius: 5%;
-    border-bottom-left-radius: 5%;
-    padding: 20px;
+    border-right: 0.3rem solid rgb(21, 21, 30);
+    border-bottom: 0.3rem solid rgb(21, 21, 30);
+    border-top: 0.3rem solid rgb(255, 8, 0);
+    border-left: 0.3rem solid rgb(255, 8, 0);
+    border-top-right-radius: 0.3rem;
+    border-bottom-left-radius: 0.3rem;
+    padding: 1rem;
     text-align: center;
 }
 
 label {
     font-weight: bold;
-    font-size: 25px;
+    font-size: 1.5rem;
 }
 
 .detail-item p {
-    font-size: 20px;
+    font-size: 1.25rem;
 }
 
 .team-details-left {
@@ -225,13 +225,13 @@ label {
 
 .team-details-left h2,
 .team-details-right h2 {
-    margin-bottom: 10px;
+    margin-bottom: 0.6rem;
 }
 
 .driver-images img {
     width: 40%;
     height: auto;
-    margin: 5px;
+    margin: 0.125rem;
 }
 
 .principal-image img {
@@ -242,14 +242,14 @@ label {
 .info {
     display: flex;
     justify-content: center;
-    margin-top: 3%;
+    margin-top: 1.9rem;
 }
 
 /* Footer */
 footer {
     text-align: center;
-    background-color: rgb(21,21,30);
-    padding: 5px;
+    background-color: rgb(21, 21, 30);
+    padding: 0.3rem;
     color: white;
     margin-top: auto;
 }
@@ -263,6 +263,58 @@ footer {
     }
     main .info .image {
         margin-right: 0;
-        margin-bottom: 15px;
+        margin-bottom: 0.9rem;
+    }
+
+    form label {
+        font-size: 1.25rem;
+    }
+
+    footer {
+        font-size: 0.85rem;
+    }
+
+    .driver-images img, .principal-image img  {
+        width: 100%;
+    }
+
+    .image {
+        width: 65%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .details {
+        width: 70%;
+    }
+
+    .detail-item label {
+        font-size: 1.4rem;
+    }
+
+    .detail-item p {
+        font-size: 1.3rem;
+    }
+
+}
+
+@media only screen and (min-width:760px) and (max-width: 1024px){
+    .detail-item label {
+        font-size: 1.6rem;
+    }
+
+    .detail-item p {
+        font-size: 1.35rem;
+    }
+
+    .image {
+        width: 60%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .details {
+        width: 60%;
+        padding: 0.85rem;
     }
 }
