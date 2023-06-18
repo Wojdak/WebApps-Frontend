@@ -213,6 +213,15 @@ label {
     font-size: 1.25rem;
 }
 
+.detail-item li {
+    list-style: none;
+    font-size: 1.25rem;
+}
+
+.underline:hover {
+    text-decoration: underline;
+}
+
 .team-details-left {
     width: 50%;
     text-align: center;

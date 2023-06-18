@@ -11,10 +11,26 @@ async function getDriverDetails(driverID) {
   document.getElementById("image-link").value = driver.ImageLink;
   document.getElementById("name").value = driver.Name;
   document.getElementById("nationality").value = driver.Nationality;
-  document.getElementById("races-won").value = driver.RacesWon;
   document.getElementById("racing-number").value = driver.RacingNumber;
-  document.getElementById("team").value = driver.Team;
+  
 
+  const teamSelect = document.getElementById("team");
+  const teamsResponse = await fetch("http://localhost:3000/teams");
+  const teams = await teamsResponse.json();
+
+  teams.forEach((team) => {
+    const option = document.createElement("option");
+    option.value = team.ID;
+    option.textContent = team.Name;
+
+    if (team.ID === driver.TeamID) {
+      option.selected = true; 
+    }
+
+    teamSelect.appendChild(option);
+  });
+
+  
 }
 
 form.addEventListener("submit", updateDriver);
@@ -25,19 +41,20 @@ async function updateDriver(event) {
   const imageLink = document.getElementById("image-link").value;
   const name = document.getElementById("name").value;
   const nationality = document.getElementById("nationality").value;
-  const team = document.getElementById("team").value;
+  const team = parseInt(document.getElementById("team").value);
   const racingNumber = document.getElementById("racing-number").value;
-  const racesWon = document.getElementById("races-won").value;
+
+  console.log("Team ID:", team);
 
   const updatedDriver = {
-    ID:parseInt(driverID),
-    ImageLink: imageLink,
     Name: name,
     Nationality: nationality,
-    Team: team,
+    TeamID: team,
     RacingNumber: racingNumber,
-    RacesWon: racesWon,
+    ImageLink: imageLink
   };
+
+  console.log("Updated Driver:", updatedDriver);
 
   try {
     const response = await fetch(`http://localhost:3000/drivers/${driverID}`, {

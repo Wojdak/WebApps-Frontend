@@ -1,30 +1,30 @@
-getDrivers();
+getRaces();
 
-async function getDrivers() {
+async function getRaces() {
   try {
-    const response = await fetch("http://localhost:3000/drivers");
+    const response = await fetch("http://localhost:3000/races");
     const data = await response.json();
-    displayDrivers(data);
+    displayRaces(data);
   } catch (error) {
     console.error(error);
   }
 }
 
-function displayDrivers(drivers) {
+function displayRaces(races) {
   const imageContainer = document.querySelector(".items-container");
 
-  drivers.forEach((driver) => {
+  races.forEach((race) => {
     const itemDiv = document.createElement("div");
     itemDiv.className = "item";
 
     const img = document.createElement("img");
-    img.src = driver.ImageLink;
+    img.src = race.ImageLink;
     itemDiv.appendChild(img);
 
     const link = document.createElement("a");
-    link.href = `driver-info.html?driverID=${driver.ID}`;
+    link.href = `race-info.html?raceID=${race.ID}`;
     const h3 = document.createElement("h3");
-    h3.textContent = driver.Name;
+    h3.textContent = race.RaceName;
     link.appendChild(h3);
     itemDiv.appendChild(link);
 
@@ -35,7 +35,7 @@ function displayDrivers(drivers) {
     const editSpan = document.createElement("span");
     editSpan.className = "edit-icon";
     const editLink = document.createElement("a");
-    editLink.href = `driver-edit.html?driverID=${driver.ID}`;
+    editLink.href = `race-edit.html?raceID=${race.ID}`;
     const editIcon = document.createElement("i");
     editIcon.className = "fa-solid fa-pen-to-square";
     editLink.appendChild(editIcon);
@@ -50,28 +50,28 @@ function displayDrivers(drivers) {
     iconsDiv.appendChild(deleteSpan);
 
     deleteSpan.addEventListener("click", () => {
-      deleteDriver(driver.ID);
+      deleteRace(race.ID);
     });
 
     imageContainer.appendChild(itemDiv);
   });
 }
 
-async function deleteDriver(driverID) {
+async function deleteRace(raceID) {
   try {
-    const response = await fetch(`http://localhost:3000/drivers/${driverID}`, {
+    const response = await fetch(`http://localhost:3000/races/${raceID}`, {
       method: "DELETE"
     });
 
     if (response.ok) {
       const data = await response.json();
       alert(data.message);
-      window.location.href = "driver.html";
+      window.location.href = "race.html";
     } else {
       const errorData = await response.json();
       alert(errorData.error);
     }
   } catch (error) {
-    console.error("An error occurred while deleting the driver:", error);
+    console.error("An error occurred while deleting the race:", error);
   }
 }
