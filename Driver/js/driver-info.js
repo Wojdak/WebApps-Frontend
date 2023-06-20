@@ -18,7 +18,7 @@ async function getDriverInfo(driverID) {
 
   const teamResponse = await fetch(`http://localhost:3000/teams/${data.TeamID}`);
   const teamData = await teamResponse.json();
-  document.getElementById('team').innerHTML = `<a href="team-info.html?teamID=${teamData.ID}">${teamData.Name}</a>`;
+  document.getElementById('team').innerHTML = `<a href="../../Team/team-info.html?teamID=${teamData.ID}">${teamData.Name}</a>`;
 
   const detailsTitle = document.querySelector('.details-title');
   detailsTitle.innerHTML = data.Name;
@@ -34,6 +34,7 @@ async function getDriverInfo(driverID) {
   if (racesWonByDriver.length > 0) {
     racesWonByDriver.forEach((race) => {
       const raceLink = document.createElement("a");
+      raceLink.classList.add("underline");
       raceLink.href = `../../Race/race-info.html?raceID=${race.ID}`;
       raceLink.textContent = race.RaceName;
 

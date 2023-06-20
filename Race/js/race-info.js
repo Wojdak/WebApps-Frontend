@@ -22,7 +22,7 @@ async function getRaceInfo(raceID) {
     if (data.WinnerID !=null) {
         const winnerResponse = await fetch(`http://localhost:3000/drivers/${data.WinnerID}`);
         const winnerData = await winnerResponse.json();
-        document.getElementById('winner').innerHTML = `<a href="../../Driver/driver-info.html?driverID=${winnerData.ID}">${winnerData.Name}</a>`;
+        document.getElementById('winner').innerHTML = `<a class="underline" href="../../Driver/driver-info.html?driverID=${winnerData.ID}">${winnerData.Name}</a>`;
     } else {
         document.getElementById('winner').textContent = "The race hasn't determined the winner yet.";
     } 
