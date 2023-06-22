@@ -10,8 +10,42 @@ async function getDrivers() {
   }
 }
 
+const filterButton = document.getElementById("filter-button");
+const removeFilterButton = document.getElementById("remove-filter-button");
+
+filterButton.addEventListener("click", filterDrivers);
+
+removeFilterButton.addEventListener("click", ()=>{
+  document.getElementById("filter-value").value="";
+  getDrivers();
+  filterButton.classList.remove("invisible");
+  removeFilterButton.classList.add("invisible");
+});
+
+async function filterDrivers() {
+  const nationality = document.getElementById("filter-value").value;
+  //console.log(nationality);
+
+  if(nationality == "") {
+    alert("Nationality cannot be null.");
+    window.location.href = 'driver.html';
+  }
+
+  filterButton.classList.add("invisible");
+  removeFilterButton.classList.remove("invisible");
+
+  try {
+    const response = await fetch(`http://localhost:3000/drivers?nationality=${nationality}`);
+    const data = await response.json();
+    displayDrivers(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 function displayDrivers(drivers) {
   const imageContainer = document.querySelector(".items-container");
+  imageContainer.innerHTML = "";
 
   drivers.forEach((driver) => {
     const itemDiv = document.createElement("div");

@@ -2,7 +2,6 @@ const form = document.querySelector('.add-form');
 
 form.addEventListener("submit", addDriver);
 
-// Fetch and populate the team select dropdown
 async function populateTeamSelect() {
   try {
     const response = await fetch("http://localhost:3000/teams");

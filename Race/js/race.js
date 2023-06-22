@@ -10,8 +10,40 @@ async function getRaces() {
   }
 }
 
+const filterButton = document.getElementById("filter-button");
+const removeFilterButton = document.getElementById("remove-filter-button");
+
+filterButton.addEventListener("click", filterRaces);
+
+removeFilterButton.addEventListener("click", ()=>{
+  document.getElementById("filter-value").value="";
+  getRaces();
+  filterButton.classList.remove("invisible");
+  removeFilterButton.classList.add("invisible");
+});
+
+async function filterRaces() {
+  const country = document.getElementById("filter-value").value;
+  filterButton.classList.add("invisible");
+  removeFilterButton.classList.remove("invisible");
+
+  if(country== "") {
+    alert("Country cannot be null.");
+    window.location.href = 'race.html';
+  }
+
+  try {
+    const response = await fetch(`http://localhost:3000/races?country=${country}`);
+    const data = await response.json();
+    displayRaces(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 function displayRaces(races) {
   const imageContainer = document.querySelector(".items-container");
+  imageContainer.innerHTML = "";
 
   races.forEach((race) => {
     const itemDiv = document.createElement("div");

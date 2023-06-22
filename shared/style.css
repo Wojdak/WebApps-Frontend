@@ -83,6 +83,14 @@ main {
     margin-bottom: 1.75rem;
 }
 
+#filter-button{
+    font-size: 1.1rem;
+}
+
+#remove-filter-button, #filter-button{
+    padding: 0.2rem 0.5rem;
+}
+
 .button-container {
     text-align: right;
     margin-bottom: 0.5rem;
@@ -261,6 +269,10 @@ footer {
     padding: 0.3rem;
     color: white;
     margin-top: auto;
+}
+
+.invisible {
+    display: none;
 }
 
 @media only screen and (max-width: 1024px){
