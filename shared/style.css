@@ -69,6 +69,7 @@ nav {
 
 .logo h1 {
     font-size: 1.75rem;
+    color: white;
 }
 
 /* Main section */
@@ -79,7 +80,9 @@ main {
 }
 
 .main-title {
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-bottom: 1.75rem;
 }
 
@@ -92,8 +95,8 @@ main {
 }
 
 .button-container {
-    text-align: right;
     margin-bottom: 0.5rem;
+    margin-left: auto;
 }
 
 .items-container {
@@ -147,6 +150,29 @@ main {
 .delete-icon:hover{
     color: rgb(255, 8, 0);
 }
+
+.redirect-buttons{
+    margin: 2rem;
+}
+
+.redirect-buttons a {
+    margin-right: 1rem;
+}
+
+#description {
+    width: 50%;
+    text-align: center;
+    margin-top: 1rem;
+    padding: 0.7rem;
+    background-color: #f2f2f2;
+    border-right: 0.2rem solid rgb(21, 21, 30);
+    border-bottom: 0.2rem solid rgb(21, 21, 30);
+    border-top: 0.2rem solid rgb(255, 8, 0);
+    border-left: 0.2rem solid rgb(255, 8, 0);
+    border-top-right-radius: 0.2rem;
+    border-bottom-left-radius: 0.2rem;
+}
+
 
 
 /* Add and Edit form styles */
@@ -317,6 +343,19 @@ footer {
         font-size: 1.3rem;
     }
 
+    .add-button {
+        font-size: 1rem;
+        margin-top: 1rem;
+    }
+
+    .button-container {
+        text-align: center;
+    }
+
+    #filter-button {
+        font-size: 0.9rem;
+    }
+
 }
 
 @media only screen and (min-width:760px) and (max-width: 1024px){
@@ -337,5 +376,9 @@ footer {
     .details {
         width: 60%;
         padding: 0.85rem;
+    }
+
+    .add-button {
+        font-size: 1rem;
     }
 }

@@ -17,24 +17,40 @@ async function addTeam(event) {
     TeamChief: teamChiefNameInput,
   };
 
-  try {
-    const response = await fetch("http://localhost:3000/teams", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newTeam),
-    });
-
-    if (response.ok) {
-      const data = await response.json();
-      alert(data.message);
-      window.location.href = 'team.html';
-    } else {
-      const errorData = await response.json();
-      alert(errorData.error);
+  if(validateTeam(newTeam)) {
+    try {
+      const response = await fetch("http://localhost:3000/teams", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newTeam),
+      });
+  
+      if (response.ok) {
+        const data = await response.json();
+        alert(data.message);
+        window.location.href = 'team.html';
+      } else {
+        const errorData = await response.json();
+        alert(errorData.error);
+      }
+    } catch (error) {
+      console.error("An error occurred while adding the team:", error);
     }
-  } catch (error) {
-    console.error("An error occurred while adding the team:", error);
   }
+}
+
+function validateTeam(team) {
+  if (!team.LogoImageLink || !team.TeamChiefImageLink || !team.Name || !team.TeamChief) {
+    alert("Please fill in all required fields.");
+    return false;
+  }
+
+  if (!isValidImageLink(team.LogoImageLink) || !isValidImageLink(team.TeamChiefImageLink)) {
+    alert("Invalid image link. Please enter a valid URL.");
+    return false;
+  }
+
+  return true
 }

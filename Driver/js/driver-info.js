@@ -16,26 +16,24 @@ async function getDriverInfo(driverID) {
   document.getElementById('nationality').innerHTML = data.Nationality;
   document.getElementById('racing-number').innerHTML = data.RacingNumber;
 
-  const teamResponse = await fetch(`http://localhost:3000/teams/${data.TeamID}`);
-  const teamData = await teamResponse.json();
-  document.getElementById('team').innerHTML = `<a href="../../Team/team-info.html?teamID=${teamData.ID}">${teamData.Name}</a>`;
+  if (data.Team && data.Team.ID != null) {
+    document.getElementById('team').innerHTML = `<a href="../Team/team-info.html?teamID=${data.Team.ID}">${data.Team.Name}</a>`;
+  } else {
+    document.getElementById('team').innerHTML = `The driver is not part of any team.`;
+  }
+  
+ 
 
   const detailsTitle = document.querySelector('.details-title');
   detailsTitle.innerHTML = data.Name;
 
-  const racesResponse = await fetch(`http://localhost:3000/races`);
-  const races = await racesResponse.json();
-
   const racesWonContainer = document.getElementById("races-won");
 
-  const racesWonByDriver = races.filter((race) => race.WinnerID === parseInt(driverID));
-  console.log(racesWonByDriver);
-
-  if (racesWonByDriver.length > 0) {
-    racesWonByDriver.forEach((race) => {
+  if ( data.RacesWon.length > 0) {
+    data.RacesWon.forEach((race) => {
       const raceLink = document.createElement("a");
       raceLink.classList.add("underline");
-      raceLink.href = `../../Race/race-info.html?raceID=${race.ID}`;
+      raceLink.href = `../Race/race-info.html?raceID=${race.ID}`;
       raceLink.textContent = race.RaceName;
 
       const raceItem = document.createElement("li");

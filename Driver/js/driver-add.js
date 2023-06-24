@@ -31,6 +31,7 @@ async function addDriver(event) {
   const teamInput = parseInt(document.getElementById("team").value);
   const racingNumberInput = document.getElementById("racing-number").value;
 
+
   const newDriver = {
     Name: nameInput,
     Nationality: nationalityInput,
@@ -39,25 +40,46 @@ async function addDriver(event) {
     ImageLink: imageLink
   };
 
-  try {
-    const response = await fetch("http://localhost:3000/drivers", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newDriver),
-    });
-
-    if (response.ok) {
-      const data = await response.json();
-      alert(data.message);
-      window.location.href = 'driver.html';
-    } else {
-      const errorData = await response.json();
-      alert(errorData.error);
+  if(validateDriver(newDriver)){
+    try {
+      const response = await fetch("http://localhost:3000/drivers", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newDriver),
+      });
+  
+      if (response.ok) {
+        const data = await response.json();
+        alert(data.message);
+        window.location.href = 'driver.html';
+      } else {
+        const errorData = await response.json();
+        alert(errorData.error);
+      }
+    } catch (error) {
+      console.error("An error occurred while adding the driver:", error);
     }
-  } catch (error) {
-    console.error("An error occurred while adding the driver:", error);
   }
+ 
 }
 
+function validateDriver(driver) {
+  if (!driver.ImageLink || !driver.Name || !driver.Nationality || !driver.RacingNumber) {
+    alert("Please fill in all required fields.");
+    return false;
+  }
+
+  if (!isValidImageLink(driver.ImageLink)) {
+    alert("Invalid image link. Please enter a valid URL.");
+    return false;
+  }
+
+  if (!isValidNumber(driver.RacingNumber)) {
+    alert("Invalid racing number. Please enter a numeric value.");
+    return false;
+  }
+
+  return true
+}

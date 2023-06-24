@@ -31,24 +31,41 @@ async function updateTeam(event) {
     TeamChiefImageLink: teamchiefImageLink
   };
 
-  try {
-    const response = await fetch(`http://localhost:3000/teams/${teamID}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(updatedTeam),
-    });
-
-    if (response.ok) {
-      const data = await response.json();
-      alert(data.message);
-      window.location.href = "team.html";
-    } else {
-      const errorData = await response.json();
-      alert(errorData.error);
+  if(validateTeam(updatedTeam)) {
+    try {
+      const response = await fetch(`http://localhost:3000/teams/${teamID}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(updatedTeam),
+      });
+  
+      if (response.ok) {
+        const data = await response.json();
+        alert(data.message);
+        window.location.href = "team.html";
+      } else {
+        const errorData = await response.json();
+        alert(errorData.error);
+      }
+    } catch (error) {
+      console.error("An error occurred while updating the team:", error);
     }
-  } catch (error) {
-    console.error("An error occurred while updating the team:", error);
   }
+  
+}
+
+function validateTeam(team) {
+  if (!team.LogoImageLink || !team.TeamChiefImageLink || !team.Name || !team.TeamChief) {
+    alert("Please fill in all required fields.");
+    return false;
+  }
+
+  if (!isValidImageLink(team.LogoImageLink) || !isValidImageLink(team.TeamChiefImageLink)) {
+    alert("Invalid image link. Please enter a valid URL.");
+    return false;
+  }
+
+  return true
 }
