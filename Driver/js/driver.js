@@ -24,7 +24,6 @@ removeFilterButton.addEventListener("click", ()=>{
 
 async function filterDrivers() {
   const nationality = document.getElementById("filter-value").value;
-  //console.log(nationality);
 
   if(nationality == "") {
     alert("Nationality cannot be null.");

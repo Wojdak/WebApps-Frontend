@@ -10,8 +10,41 @@ async function getTeams() {
   }
 }
 
+const filterButton = document.getElementById("filter-button");
+const removeFilterButton = document.getElementById("remove-filter-button");
+
+filterButton.addEventListener("click", filterTeams);
+
+removeFilterButton.addEventListener("click", ()=>{
+  document.getElementById("filter-value").value="";
+  getTeams();
+  filterButton.classList.remove("invisible");
+  removeFilterButton.classList.add("invisible");
+});
+
+async function filterTeams() {
+  const teamChief = document.getElementById("filter-value").value;
+
+  if(teamChief == "") {
+    alert("Team Chief cannot be null.");
+    window.location.href = 'team.html';
+  }
+
+  filterButton.classList.add("invisible");
+  removeFilterButton.classList.remove("invisible");
+
+  try {
+    const response = await fetch(`http://localhost:3000/teams?teamChief=${teamChief}`);
+    const data = await response.json();
+    displayTeams(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 function displayTeams(teams) {
   const imageContainer = document.querySelector(".items-container");
+  imageContainer.innerHTML = "";
 
   teams.forEach((team) => {
     const itemDiv = document.createElement("div");

@@ -12,6 +12,9 @@ async function getTeamInfo(teamID) {
   const teamNameElement = document.querySelector('.details-title');
   teamNameElement.innerHTML = data.Name;
 
+  const principalName = document.querySelector('.principal-name');
+  principalName.innerHTML = data.TeamChief;
+
   const teamChiefImageElement = document.querySelector('.principal-image img');
   teamChiefImageElement.src = data.TeamChiefImageLink;
   teamChiefImageElement.alt = 'Team Principal Image';
